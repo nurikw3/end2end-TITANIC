@@ -1,9 +1,11 @@
+
+
 # 🚢 End2End-Titanic
 
 ![Preview](preview.jpg)
 
 **End2End-Titanic** — full **end-to-end machine learning project** predicting Titanic survival.
-Includes **model training, API, frontend (Streamlit), and saved model** in `.pkl`.
+Includes **model training, API, frontend (Streamlit), saved model (`.pkl`)**, and **Docker support**.
 
 ---
 
@@ -13,8 +15,8 @@ Includes **model training, API, frontend (Streamlit), and saved model** in `.pkl
 * 📦 **Trained model** saved as `model.pkl`.
 * 🌐 **REST API** for predictions with FastAPI.
 * 🖥 **Interactive Streamlit frontend**.
-* 🔄 **Supports user input** via API or frontend.
-* ⚡ **Request counter & health check** for monitoring.
+* 🐳 **Dockerized** for easy deployment.
+* 🔄 **Request counter & health check** for monitoring.
 
 ---
 
@@ -73,6 +75,18 @@ streamlit run app.py
 
 ---
 
+### 3️⃣ Run with Docker
+
+```bash
+docker build -t end2end-titanic .
+docker run -p 4000:4000 end2end-titanic
+```
+
+* API will be accessible at `http://localhost:4000`.
+* Streamlit frontend can also be exposed via Docker if configured in the Dockerfile.
+
+---
+
 ## 🗂 Project Structure
 
 ```
@@ -81,29 +95,15 @@ end2end-titanic/
 ├─ app.py               # Streamlit frontend
 ├─ api.py               # FastAPI backend
 ├─ model.pkl            # Trained ML model
+├─ Dockerfile           # Docker configuration
 ├─ requirements.txt
 ├─ preview.jpg          # Project preview image
 └─ README.md
 ```
 
----
-
-## 🧩 Requirements
-
-* Python 3.10+
-* pandas
-* scikit-learn
-* pickle
-* fastapi
-* uvicorn
-* streamlit
-* pydantic
-
----
-
 ## 💡 Notes
 
 * 🔄 Full end-to-end pipeline from input → prediction.
 * ⚡ API includes **health** and **request stats** endpoints.
+* 🐳 Docker support allows **easy deployment** anywhere.
 * 🖥 Streamlit frontend allows interactive testing without API calls.
-
